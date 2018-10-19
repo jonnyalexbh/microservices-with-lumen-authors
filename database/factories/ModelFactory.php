@@ -9,11 +9,12 @@
 | you a convenient way to create models for testing and seeding your
 | database. Just tell the factory how a default model should look.
 |
-*/
+ */
 
-$factory->define(App\User::class, function (Faker\Generator $faker) {
+$factory->define(App\Author::class, function (Faker\Generator $faker) {
     return [
-        'name' => $faker->name,
-        'email' => $faker->email,
+        'gender' => $gender = $faker->randomElement(['male', 'female']),
+        'name' => $faker->name($gender),
+        'country' => $faker->country,
     ];
 });
